@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 템플릿 -->
+	<definition name="indexTemplate" template="/WEB-INF/layout/index.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/include/mainContent.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="mainTemplate" template="/WEB-INF/layout/mainLayout.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/menu/pub_menu.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/emp/login.jsp"></put-attribute>
+	</definition>
+	<!-- 상품뷰 -->
+	<definition name="productmainTemplate" 
+			template="/WEB-INF/layout/prd_mainLayout.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/product_top.jsp"/>
+		<put-attribute name="content" 
+		                 value="/WEB-INF/include/product_content.jsp"/>
+	</definition>
+	<!-- admin페이지 -->
+	<definition name="adminTemplate" 
+			template="/WEB-INF/layout/adminlayout.jsp">
+		<put-attribute name="top" value="/WEB-INF/include/top.jsp"/>
+		<put-attribute name="menu" 
+		                 value="/WEB-INF/include/adminleft.jsp"/>
+		<put-attribute name="content" 
+		                 value="/WEB-INF/include/admincontent.jsp"/>
+	</definition>
+	<!-- 뷰  -->
+	<definition name="index" extends="indexTemplate">
+	</definition>
+	
+	<definition name="login" extends="mainTemplate">
+	</definition>
+	
+	
+	<definition name="admin/index" extends="adminTemplate">
+	</definition>	
+</tiles-definitions>
+
+
+
+
+
+
+
+

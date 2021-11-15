@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="multi.shop.product.comment">
+	<insert id="write" parameterType="procomment">
+		insert into pro_comment
+		values(#{prd_no},#{mem_id},#{pro_comment},sysdate)
+	</insert>
+	<select id="list" resultType="procomment" parameterType="String">
+		select * from pro_comment where prd_no = #{prd_no}
+	</select>
+	<select id="comment_result" 
+		resultType="commentresult" parameterType="String">
+		select * from comment_result 
+		order by to_number(count) desc
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

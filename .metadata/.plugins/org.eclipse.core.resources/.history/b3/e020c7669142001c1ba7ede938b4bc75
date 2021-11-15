@@ -1,0 +1,47 @@
+package socket.echo;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+//������ ����ϸ� �����͸� �ְ� ���� �� �ִ� Ŭ���̾�Ʈ
+public class MyEchoClient02 {
+
+	public static void main(String[] args) {
+		Socket server = null;
+		BufferedReader in = null;
+		PrintWriter out = null;
+		BufferedReader keyin = null;
+		try {
+			server = new Socket("192.168.0.140", 12345);
+			System.out.println("�������ӿϷ�!! ���� Ŭ���̾�Ʈ");
+			in = new BufferedReader(new InputStreamReader(server.getInputStream()));
+			out = new PrintWriter(server.getOutputStream(), true);
+			keyin = new BufferedReader(new InputStreamReader(System.in));
+			
+			String sendMsg = "";
+			String resMsg = "";
+			
+			while((sendMsg = keyin.readLine()) != null) {
+				out.println(sendMsg);
+				
+				resMsg = in.readLine();
+				System.out.println("서버가 보내온 메세지: "+resMsg);
+			}
+			
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+	}
+
+}

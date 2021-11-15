@@ -1,0 +1,32 @@
+package socket;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class MyNetServer04 {
+
+	public static void main(String[] args) {
+		Socket client = null;
+		BufferedReader in = null;
+		PrintWriter out = null;
+		try {
+			ServerSocket server = new ServerSocket(12345);
+			System.out.println("서버접속완료!!");
+			while(true) {
+				client = server.accept();
+				InetAddress clientIp = client.getInetAddress();
+				System.out.println("접속한 클라이언트: "+clientIp.getHostAddress());
+				//네트워크를 통해서 입출력을 하기 위한 IO스트림객체를 생성
+				
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

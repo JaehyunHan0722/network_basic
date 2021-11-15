@@ -1,0 +1,31 @@
+package thread.basic;
+
+class AlphaDemo02 extends Thread{
+
+	@Override
+	public void run() {
+		for(int i=65; i<=90; i++) {
+			
+			System.out.print((char)i+"\t");
+			if(i%10 == 0) {
+				System.out.println();
+			}
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
+
+public class RunnableTest02 {
+
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

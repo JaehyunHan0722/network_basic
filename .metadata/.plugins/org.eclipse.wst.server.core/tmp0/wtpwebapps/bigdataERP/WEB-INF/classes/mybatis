@@ -1,0 +1,89 @@
+<<MyBatis작업>>
+DAO클래스에서 SQL을 분리할 수 있도록 지원하는 프레임워크
+DAO에서 DB작업을 위해서 처리되던 중복된 내용을 모두 MyBatis에서 처리한다.
+1. pom.xml에 의존모듈 추가(라이브러리 추가하기)
+   => Mybatis를 쓰기 위해서 필요한 라이브러리를 등록
+   
+   - MyBatis
+   - spring과 MyBatis연동을 위한 라이브러리
+   - spring에서 db연동하기 위한 라이브러리 
+   
+2. MyBatis에서 사용할 설정 파일을 작성
+   1) MyBatis 메인 설정 파일
+      => MyBatis를 사용하기 위해서 필요한 내용을 정의
+        Connection관리를 위해서 필요한 내용(spring을 사용하지 않으면 MyBatis에서 커넥션을 관리한다.)
+        mapper에 대한 정보
+        mapper 내부에서 사용할 VO에 대한 정보
+        : /WEB-INF/config/mybatis-config.xml로저장
+        
+   2) mapper : 자바코드로 부터 sql문을 분리하는 것이 목적
+               mapper설정파일에 sql문을 정의
+               테이블 한 개에서 사용하는 sql문을 하나의 mapper파일로 작성
+               
+3. spring설정파일에 등록
+   - spring내부에서 MyBatis를 사용하기 위해서 설정
+   1) Connection객체를 관리하기 위한 Spring의 클래스를 등록
+       - WAS가 관리하는 Connection Pool에서 DB연동을 하기 위한 Connection을 받아서 관리할 수 있도록 스프링에서 제공되는 빈을 등록한다.
+       
+   2) Spring에서 MyBatis의 핵심 클래스인  SqlSession을 사용할 수 있도록 Factory클래스 등록
+       -  SqlSession을 만들기 위해서 MyBatis의 설정 파일의 정보를 넘겨준다.
+   3) MyBatis핵심클래스인 SqlSession사용할 수 있도록 빈으로 등록
+       - DB연동을 위한 기능을 제공하는 클래스
+
+
+[기능추가하기]
+0. mapper파일 작성하기
+1. 새로운 테이블을 가지고 작업을 한다면 mybatis-config.xml파일에 VO파일과 
+   mapper파일 등록
+2. DAOImpl(BoardDAOImpl), Controller(BoardController), 
+   ServiceImpl(BoardServiceImpl)만들고 injection시켜서 연결하기
+   =>Emp참고
+   
+   1) 게시글등록
+      /board/insert.do
+   2) 목록보기
+      /board/list.do 
+3. Controller에서 BoardServiceImpl을 호출할 수 있도록 작업
+4. BoardServiceImpl에서  BoardDAOImpl을 호출할 수 있도록 작업
+5. BoardController에서 뷰에서 넘겨준 BoardVO 객체를 추출해서 
+   			sevice의메소드를 호출하면서 넘기기
+6. mapper에 <insert><select>추가
+7. tiles설정파일에 뷰 등록
+   board/insert
+   board/list
+   
+8. 게시글등록이 끝나면 board/list.do로 redirect   
+9. 게시글목록보기 =>  board/list로 뷰를 설정
+   => Emp처럼 boardlist.jsp수정해서 게시글목록 확인하기
+   
+메일로 전송하기 10:5 ~ 10:50 까지
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               

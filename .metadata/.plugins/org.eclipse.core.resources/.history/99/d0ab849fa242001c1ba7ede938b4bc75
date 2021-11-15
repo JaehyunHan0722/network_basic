@@ -1,0 +1,29 @@
+package basic;
+
+public class CodeTest {
+
+	public static void main(String[] args) {
+		String[] participant = new String[] {"mislav", "stanko", "mislav", "ana", "ana"};
+		String[] completion = new String[] {"ana", "stanko", "ana", "mislav"};
+		String answer = "";
+		int count = 0;
+        boolean same = false;
+        for(int i=0; i<participant.length; i++){
+            for(int j=0; j<completion.length; j++){
+                 if(participant[i].equals(completion[j])){
+                	System.out.println(participant[i]+", "+completion[j]);
+                    same = true;
+                    completion[j] = "";
+                    break;
+                }
+            }
+            if(same == false){
+                answer = participant[i];
+                
+            }
+            same = false;
+        }
+        System.out.println("answer: "+answer);
+	}
+
+}

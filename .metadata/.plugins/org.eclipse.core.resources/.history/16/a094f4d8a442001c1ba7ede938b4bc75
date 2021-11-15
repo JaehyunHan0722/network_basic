@@ -1,0 +1,10 @@
+package single.console.chatting;
+
+public class ServerReceiveThread {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

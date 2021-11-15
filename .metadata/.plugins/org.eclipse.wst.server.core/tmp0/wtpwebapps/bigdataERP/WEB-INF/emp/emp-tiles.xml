@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 부서 관련 작업으로 response될 페이지를 등록하는 설정파일-->	
+	<definition name="emp/insert" extends="mainTemplate">
+		<put-attribute name="menu" value="/WEB-INF/menu/insa_menu.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/emp/register.jsp"></put-attribute>
+	</definition>
+	<definition name="emp/list" extends="mainTemplate">
+		<put-attribute name="menu" value="/WEB-INF/menu/insa_menu.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/emp/emplist.jsp"></put-attribute>
+	</definition>
+	<definition name="login/ok" extends="mainTemplate">
+		<put-attribute name="menu" value="/WEB-INF/menu/insa_menu.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/emp/mypage.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>
+
+
+
+
+
+
+
+

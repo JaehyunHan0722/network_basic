@@ -1,0 +1,5 @@
+package single.console.chatting;
+
+public class ClientReceiveThread {
+
+}

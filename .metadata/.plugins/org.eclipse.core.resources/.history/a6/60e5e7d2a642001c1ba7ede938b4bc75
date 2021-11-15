@@ -1,0 +1,44 @@
+package single.console.chatting;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import jdk.internal.org.jline.utils.InputStreamReader;
+
+public class ServerReceiveThread {
+
+	public static void main(String[] args) {
+		ServerReceive recieve = new ServerReceive();
+		Thread obj = new Thread();
+		obj.start();
+		
+	}
+	
+}
+
+class ServerReceive implements Runnable{
+
+	@Override
+	public void run() {
+		Socket client = null;
+		BufferedReader in = null;
+		PrintWriter out = null;
+		
+		try {
+			ServerSocket server = new ServerSocket(12345);
+			while(true) {
+				in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

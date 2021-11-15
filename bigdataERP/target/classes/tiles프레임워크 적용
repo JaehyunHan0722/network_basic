@@ -1,0 +1,48 @@
+[Tiles프레임워크를 이용해서 화면레이아웃 구성하기]
+
+1. 라이브러리를 pom.xml에 추가하기
+2. 레이아웃이 적용되어 있는 템플릿파일과 연결할 jsp파일들이 미리 만들어져 있어야 한다.
+3. tiles설정파일작성( tiles-config.xml)
+   - 템플릿을 등록
+     :템플릿의 각 영역을 나누고 나눈 영역에 기본으로 연결해 줄 jsp파일을 설정
+     <definition name="mainTemplate" template="/WEB-INF/template/mainLayout.jsp">
+                 -------------------          -----------------------------------
+                   템플릿의 이름                     템플릿 역할을 할 페이지(미리 화면 구성을 해서 나눠야 한다. - bootstrap등을 이용해서 작업)
+		<put-attribute name="top" value="/WEB-INF/template/top.jsp"/>
+		               ------------     ---------------------------------
+		                 템플릿 각 영역의 이름          템플릿 각 영역에 연결될 페이지
+		<put-attribute name="menu" value="/WEB-INF/menu/spring_jdbc.jsp"/>
+		<put-attribute name="top" value="/WEB-INF/template/top.jsp"/>
+	</definition> 
+4. 템플릿(레이아웃을 미리 만들어 놓은 파일 - mainLayout.jsp) 
+   jsp파일에 나눠놓은 각 영역이 tiles설정 파일과 일치하도록 설정
+   tiles프레임워크에서 제공하는 태그를 쓰기위해 등록
+   <tiles:insertAttribute name="content"></tiles:insertAttribute>	   
+                           --------------
+                               tiles설정 파일에 미리 등록한 영역의 이름
+5. 스프링 내부에서 실행될 때 DispatcherServlet이 뷰의 정보를 ViewResolver에 전달하면 
+   기존에는 컨트롤러에서 넘겨주는 뷰정보에 prefix와 suffix를 이용해서 뷰를 완성하는 방식
+    ex) 뷰정보 : test/index
+        InternalResourceViewResolver를 이용해서 뷰를 완성
+        /WEB-INF/test/index.jsp
+        
+   기존방식과 다르게 tiles프레임워크를 이용해서 뷰를 만들 수 있도록  스프링 설정 파일에 등록
+     - tiles설정 파일이 어떤 파일인지 등록
+     - 만들어야 할 뷰의 정보가 tiles뷰임을 등록       
+        
+6. 템플릿을 활용해서 어떤 뷰를 만들 것인지 tiles설정 파일에 등록 
+     <definition name="index" extends="mainTemplate">
+	 </definition>      
+     name속성: controller에서 사용할 뷰의 이름     
+     extends속성 : tiles설정파일에 등록한 템플릿의 이름    
+        
+   top.jsp -> TilesIndexController       
+                      |
+                      |
+                      |
+                   tiles-config.xml확인
+        
+        
+        
+        
+         

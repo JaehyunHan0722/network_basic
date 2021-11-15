@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="erp.emp">
+ 	 <insert id="insert" parameterType="emp">
+ 	 	insert into member values(#{id},#{pass},#{name},#{addr},1000,#{deptno},null,'normal')
+ 	 </insert>
+ 	 <select id="list" resultType="emp">
+ 	 	select * from member
+ 	 </select>
+ 	 <select id="idcheck" resultType="emp" parameterType="String">
+ 	 	select * from member where id = #{id}
+ 	 </select>
+ 	 <select id="login" resultType="emp" parameterType="emp">
+ 	 	select * from member where id = #{id} and pass=#{pass}
+ 	 </select>
+ </mapper>
