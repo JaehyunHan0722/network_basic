@@ -9,7 +9,7 @@ public class ConsoleChatClient {
 
 	public static void main(String[] args) {
 		try {
-			Socket server = new Socket("192.168.0.7", 12345);
+			Socket server = new Socket("192.168.0.140", 12345);
 			new ClientReceiveThread(server).start();
 			new ClientSenderThread(server).start();
 		} catch (UnknownHostException e) {
