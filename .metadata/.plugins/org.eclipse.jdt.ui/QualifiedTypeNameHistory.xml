@@ -35,9 +35,10 @@
     <fullyQualifiedTypeName name="org.eclipse.paho.client.mqttv3.MqttConnectOptions"/>
     <fullyQualifiedTypeName name="org.eclipse.paho.client.mqttv3.MqttClient"/>
     <fullyQualifiedTypeName name="basic.MyMqtt_Sub_Client"/>
-    <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="main.MyMqtt_Pub_Client"/>
     <fullyQualifiedTypeName name="org.eclipse.paho.client.mqttv3.MqttMessage"/>
-    <fullyQualifiedTypeName name="java.lang.Thread"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="single.console.chatting.ConsoleChatServer2"/>
 </qualifiedTypeNameHistroy>

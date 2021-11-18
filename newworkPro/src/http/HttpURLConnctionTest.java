@@ -18,8 +18,8 @@ public class HttpURLConnctionTest {
 
 	public static void main(String[] args) throws IOException {
 //		String url = "http://192.168.0.140:8088/bigdataERP/board/list.do?category=all";
-//		String url = "http://192.168.0.140:8088/bigdataERP/emp/idcheck.do?id=jang";
-		String url = "http://192.168.0.140:8088/bigdataERP/board/ajax_list.do?category=all";
+		String url = "http://192.168.0.140:8088/bigdataERP/emp/idcheck.do?id=jang";
+//		String url = "http://192.168.0.140:8088/bigdataERP/board/ajax_list.do?category=all";
 		URL urlObj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection)urlObj.openConnection();
 		//전송 방식

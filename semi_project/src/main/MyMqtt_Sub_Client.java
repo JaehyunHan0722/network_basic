@@ -48,17 +48,14 @@ public class MyMqtt_Sub_Client implements MqttCallback{
 		}
 		return this;
 	}
-	//Ŀ�ؼ��� ����Ǹ� ȣ��
 	@Override
 	public void connectionLost(Throwable arg0) {
 		
 	}
-	//�޼��� ����� �Ϸ�Ǹ� ȣ��
 	@Override
 	public void deliveryComplete(IMqttDeliveryToken arg0) {
 		
 	}
-	//�޼����� �����ϸ� ȣ��Ǵ� �޼ҵ� - topic(broker������û�� topic��), MqttMessage�� �޼���
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		System.out.println("==============메세지 수신===============");

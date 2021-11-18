@@ -1,4 +1,4 @@
-package single.console.chatting;
+package android_sts_connection;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class ConsoleChatServer {
 				client = server.accept();
 				if(client != null) {
 					clientIp = client.getInetAddress();
-					System.out.println("클라이언트 ip: "+clientIp.getHostName());
+					System.out.println("클라이언트 ip: "+clientIp.getHostAddress());
 										
 					ServerReceiveThread srt = new ServerReceiveThread(client);
 					srt.start();
