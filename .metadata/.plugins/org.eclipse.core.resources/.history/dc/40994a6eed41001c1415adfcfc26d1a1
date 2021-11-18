@@ -1,7 +1,0 @@
-package socket;
-
-public class MyNetServer01 {
-	public static void main(String[] args) {
-		
-	}
-}

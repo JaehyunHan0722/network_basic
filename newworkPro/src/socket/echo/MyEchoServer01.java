@@ -17,17 +17,17 @@ public class MyEchoServer01 {
 		PrintWriter out = null;
 		try {
 			ServerSocket server = new ServerSocket(12345);
-			System.out.println("¼­¹öÁ¢¼Ó¿Ï·á!!");
+			System.out.println("ì„œë²„ ì—´ë¦¼!");
 			while(true) {
 				client = server.accept();
 				InetAddress clientIp = client.getInetAddress();
-				System.out.println("Á¢¼ÓÇÑ Å¬¶óÀÌ¾ğÆ®: "+clientIp.getHostAddress());
-				//³×Æ®¿öÅ©¸¦ ÅëÇØ¼­ ÀÔÃâ·ÂÀ» ÇÏ±â À§ÇÑ IO½ºÆ®¸²°´Ã¼¸¦ »ı¼º
+				System.out.println("í´ë¼ì´ì–¸íŠ¸ ì ‘ì†í•¨: "+clientIp.getHostAddress());
+				//ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ IOï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 				out = new PrintWriter(client.getOutputStream(), true);
 				
-				//*********************Åë½Å ½ÃÀÛ**************************
-				//Å¬¶óÀÌ¾ğÆ®°¡ º¸³»¿À´Â ¸Ş¼¼Áö¸¦ ´Ù½Ã Å¬¶óÀÌ¾ğÆ®¿¡°Ô Àü¼Û
+				//*********************ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½**************************
+				//Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				String resMsg = "";
 				while(true) {
 					resMsg = in.readLine();
@@ -35,7 +35,7 @@ public class MyEchoServer01 {
 						break;
 						
 					}
-					System.out.println("Å¬¶óÀÌ¾ğÆ®°¡ º¸³½ ¸Ş¼¼Áö:"+resMsg);
+					System.out.println("Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½:"+resMsg);
 					out.println(resMsg+"^^");
 				}
 				
