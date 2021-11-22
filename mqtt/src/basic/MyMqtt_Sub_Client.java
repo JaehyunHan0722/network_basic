@@ -7,25 +7,23 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-//MqttÅ¬¶óÀÌ¾ğÆ® ÀÛ¼º - subscriber
-//±¸µ¶½ÅÃ»À» ÇÏ°í ¸Ş¼¼Áö°¡ Àü´ŞµÇ´Â °ÍÀ» ´ë±â
-//1. MqttCallback ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó
-//2. MqttCallbakc ÀÎÅÍÆäÀÌ½ºÀÇ ¸Ş¼Òµå¸¦ ¿À¹ö¶óÀÌµù
-//3. MqttClient °´Ã¼¸¦ ¸¸µé±â - broker¿Í Åë½ÅÇÏ´Â ¿ªÇÒÀ» ´ã´ç, subscriber, publisherÀÇ ¿ªÇÒÀ» ´ã´ç
+//MqttÅ¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Û¼ï¿½ - subscriber
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ŞµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+//1. MqttCallback ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+//2. MqttCallbakc ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½Ş¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+//3. MqttClient ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ - brokerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, subscriber, publisherï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 public class MyMqtt_Sub_Client implements MqttCallback{
 	private MqttClient mqttclient;
 	private MqttConnectOptions mqttOption;
+	
 	public MyMqtt_Sub_Client init(String server, String clientId) {
 		mqttOption = new MqttConnectOptions();
 		mqttOption.setCleanSession(true);
 		mqttOption.setKeepAliveInterval(30);
 		
 		try {
-			//broker¿¡  subscribe ÇÏ±â À§ÇÑ Å¬¶óÀÌ¾ğÆ® °´Ã¼¸¦ »ı¼º
 			mqttclient = new MqttClient(server, clientId);
-			//Å¬¶óÀÌ¾ğÆ® °´Ã¼¿¡ Äİ¹éÀ» ¼ÂÆÃ - subscribeÇÏ¸é¼­ ÀûÀıÇÑ ½ÃÁ¡¿¡ ¸Ş¼Òµå°¡ È£ÃâµÉ ¼ö ÀÖ´Ù.
 			mqttclient.setCallback(this);
-			//mqttclient°¡ broker¿¡ ¿¬°áÇÒ ¼ö ÀÖµµ·Ï ¼³Á¤
 			mqttclient.connect(mqttOption);
 		} catch (MqttException e) {
 			e.printStackTrace();
@@ -34,24 +32,24 @@ public class MyMqtt_Sub_Client implements MqttCallback{
 		return this;
 	}
 	
-	//Ä¿³Ø¼ÇÀÌ Á¾·áµÇ¸é È£Ãâ
+	//Ä¿ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ È£ï¿½ï¿½
 	@Override
 	public void connectionLost(Throwable arg0) {
 		
 		
 	}
-	//¸Ş¼¼Áö ¹è´ŞÀÌ ¿Ï·áµÇ¸é È£Ãâ
+	//ï¿½Ş¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¸ï¿½ È£ï¿½ï¿½
 	@Override
 	public void deliveryComplete(IMqttDeliveryToken arg0) {
 		
 		
 	}
-	//¸Ş¼¼Áö°¡ µµÂøÇÏ¸é È£ÃâµÇ´Â ¸Ş¼Òµå - topic(broker±¸µ¶½ÅÃ»ÇÑ topic¸í), MqttMessage´Â ¸Ş¼¼Áö
+	//ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ş¼Òµï¿½ - topic(brokerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ topicï¿½ï¿½), MqttMessageï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
-		System.out.println("==============¸Ş¼¼Áö µµÂø===============");
-		System.out.println("ÅäÇÈ: "+topic);
-		System.out.println("¸Ş¼¼Áö: "+message);
+		System.out.println("==============ìˆ˜ì‹ ëœ ë©”ì„¸ì§€===============");
+		System.out.println("í† í”½: "+topic);
+		System.out.println("ë©”ì„¸ì§€: "+message);
 		System.out.println("id: "+message.getId());
 		System.out.println("Payload: "+new String(message.getPayload()));
 		
@@ -60,7 +58,7 @@ public class MyMqtt_Sub_Client implements MqttCallback{
 		
 		try {
 			if(topic != null) {
-				mqttclient.subscribe(topic, 0);		//topic, Qos´Â ¸Ş¼¼Áö¸¦ Àü´ŞÇÏ°í °ü¸®ÇÏ´Â ¹æ¹ı(Ç°Áú)
+				mqttclient.subscribe(topic, 0);		//topic, Qosï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½(Ç°ï¿½ï¿½)
 			}
 		} catch (MqttException e) {
 			e.printStackTrace();
@@ -71,7 +69,7 @@ public class MyMqtt_Sub_Client implements MqttCallback{
 	
 	public static void main(String[] args) {
 		MyMqtt_Sub_Client client = new MyMqtt_Sub_Client();
-		//MqttClient°´Ã¼°¡ broker¿¡ ¿¬°áµÇ°í ±¸µ¶½ÅÃ»
+		//MqttClientï¿½ï¿½Ã¼ï¿½ï¿½ brokerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»
 		client.init("tcp://192.168.0.140:1883", "myid").subscribe("led");
 	}
 }

@@ -22,8 +22,10 @@ public class ServerReceiveThread extends Thread{
 				resMsg = in.readLine();
 				if(resMsg == null) {
 					System.out.println("수신된 메세지 없음");
+				}else {
+					System.out.println("클라이언트로부터 수신된 메세지: "+resMsg);
 				}
-				System.out.println("클라이언트로부터 수신된 메세지: "+resMsg);
+				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

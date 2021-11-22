@@ -8,12 +8,12 @@ import java.net.Socket;
 
 public class ServerReceiveThread extends Thread{
 	Socket client;
-	//¾²·¹µå°¡ »ý¼ºµÉ ¶§ ¼­¹ö Á¤º¸¸¦ ³Ñ°Ü¹Þµµ·Ï
+	
 	public ServerReceiveThread(Socket client) {
 		super();
 		this.client = client;
 	}
-	//¼­¹ö°¡ º¸³»´Â ¸Þ¼¼Áö¸¦ ÀÐ¾î¼­ ÄÜ¼Ö¿¡ Ãâ·ÂÇÏ´Â ½ÇÇàÈå¸§
+	
 	@Override
 	public void run() {
 		BufferedReader in = null;
@@ -25,7 +25,7 @@ public class ServerReceiveThread extends Thread{
 				if(resMsg == null) {
 					break;
 				}
-				System.out.println("Å¬¶óÀÌ¾ðÆ®: "+resMsg);
+				System.out.println("ìˆ˜ì‹ í•œ ë©”ì„¸ì§€: "+resMsg);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
