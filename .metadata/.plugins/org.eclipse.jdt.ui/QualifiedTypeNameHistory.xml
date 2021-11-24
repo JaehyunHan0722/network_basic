@@ -45,9 +45,11 @@
 <fullyQualifiedTypeName name="main.ServerReceiveThread"/>
 <fullyQualifiedTypeName name="main.MyMqtt_Pub_Client"/>
 <fullyQualifiedTypeName name="main.AndroidMqttConnectServer"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="main.AndroidSenderThread"/>
 <fullyQualifiedTypeName name="main.Mqtt_Sub_fromLP.TcpServer"/>
 <fullyQualifiedTypeName name="org.eclipse.paho.client.mqttv3.MqttClient"/>
 <fullyQualifiedTypeName name="main.AndroidSender"/>
+<fullyQualifiedTypeName name="main.Mqtt_Pub_toLP"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
 </qualifiedTypeNameHistroy>
